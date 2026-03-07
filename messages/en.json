@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Managing Business Through Knowledge, Processes and Technology",
+    "description": "Fluxor Consulting is an expert in transforming distributed companies through comprehensive consulting and digitalisation: from strategy to implementation. We combine deep industry expertise with project and process management practice, helping businesses in IT, finance, manufacturing and logistics achieve sustainable growth and operational efficiency.",
+    "cta": "Get in touch",
+    "learnMore": "Our services",
+    "label": "Strategic Advisory",
+    "stat1": "Years of experience",
+    "stat2": "Projects delivered",
+    "stat3": "Countries served",
+    "sideQuote": "Managing Business Through Knowledge, Processes and Technology"
+  },
+  "about": {
+    "label": "About us",
+    "title": "Expert in transforming distributed companies",
+    "p1": "Fluxor Consulting is an expert in transforming distributed companies through comprehensive consulting and digitalisation: from strategy to implementation.",
+    "p2": "We combine deep industry expertise with project and process management practice, helping businesses in IT, finance, manufacturing and logistics achieve sustainable growth and operational efficiency.",
+    "stat1Value": "10+",
+    "stat1Label": "Years in business transformation",
+    "stat2Value": "4",
+    "stat2Label": "Industry verticals",
+    "stat3Value": "100%",
+    "stat3Label": "Results-oriented"
+  },
+  "services": {
+    "label": "Services",
+    "title": "What we do",
+    "description": "We provide integrated advisory services across the most critical dimensions of business performance.",
+    "items": [
+      {
+        "title": "Corporate Strategy",
+        "description": "Market entry, portfolio optimization, competitive positioning, and long-range strategic planning."
+      },
+      {
+        "title": "Financial Advisory",
+        "description": "M&A due diligence, financial modeling, valuation, and capital structure optimization."
+      },
+      {
+        "title": "Operational Excellence",
+        "description": "Process redesign, cost transformation, and organizational effectiveness programs."
+      },
+      {
+        "title": "Digital Transformation",
+        "description": "Technology strategy, digital roadmaps, and implementation governance for complex change programs."
+      },
+      {
+        "title": "Risk & Compliance",
+        "description": "Enterprise risk frameworks, regulatory compliance, and internal control assessments."
+      },
+      {
+        "title": "Leadership & Talent",
+        "description": "Organizational design, executive alignment, and capability-building programs."
+      }
+    ]
+  },
+  "news": {
+    "label": "Insights",
+    "title": "Latest thinking",
+    "readMore": "Read article",
+    "noNews": "No articles published yet."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's talk",
+    "description": "Tell us about your challenge. Our team will follow up within one business day.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "John Smith",
+      "email": "Email",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Company name",
+      "message": "Message",
+      "messagePlaceholder": "Describe your project or question...",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "success": "Thank you. We will be in touch shortly.",
+      "error": "Something went wrong. Please try again.",
+      "captchaError": "Please complete the CAPTCHA verification."
+    },
+    "info": {
+      "emailLabel": "Email",
+      "email": "hello@fluxorconsulting.com",
+      "locationLabel": "Location",
+      "location": "Moscow, Russia"
+    }
+  },
+  "footer": {
+    "tagline": "Strategic Advisory. Measurable Results.",
+    "rights": "All rights reserved.",
+    "company": "Fluxor Consulting"
+  },
+  "advantages": {
+    "label": "Why us",
+    "title": "Our advantages",
+    "items": [
+      {
+        "title": "10+ years of experience",
+        "description": "Transforming distributed structures in IT, finance, manufacturing and education."
+      },
+      {
+        "title": "Flexible solutions",
+        "description": "We adapt methodologies to local and international standards of your business."
+      },
+      {
+        "title": "Team of experts",
+        "description": "Practitioners with hands-on experience in IT, finance, manufacturing and education."
+      }
+    ]
+  },
+  "results": {
+    "label": "Impact",
+    "title": "Results we deliver",
+    "description": "Measurable improvements across key business metrics.",
+    "items": [
+      {
+        "value": "20–30%",
+        "label": "Cost reduction",
+        "description": "Through process optimisation, automation and elimination of operational waste."
+      },
+      {
+        "value": "2–3×",
+        "label": "Process manageability",
+        "description": "Increased transparency and control over operational activities."
+      },
+      {
+        "value": "AI+",
+        "label": "AI implementation",
+        "description": "Real integration of artificial intelligence into the company's operational activities."
+      }
+    ]
+  },
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "Our experience",
+    "description": "Delivered projects across industry verticals.",
+    "sectors": [
+      {
+        "name": "IT",
+        "items": [
+          "IT process development strategy for an industrial sector company",
+          "IT process model design for a mining industry company",
+          "Implementation and development of IT support processes for a corporate services company",
+          "Business process automation implementation for an IT company",
+          "Establishing internal process offices in distributed business structures"
+        ]
+      },
+      {
+        "name": "Finance",
+        "items": [
+          "Shared service centre implementation in multinational companies",
+          "Transformation of financial and economic function management model",
+          "Development of accounting and tax process methodology",
+          "Transfer pricing implementation and support",
+          "Controlling system setup"
+        ]
+      },
+      {
+        "name": "Education",
+        "items": [
+          "Process training programmes and process culture development",
+          "Recruitment for process management positions",
+          "Process management quality audit"
+        ]
+      }
+    ]
+  }
+}
