@@ -2,7 +2,6 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
@@ -30,15 +29,11 @@ export default function Header() {
   const navLinks = [
     { href: '#about', label: t('about') },
     { href: '#services', label: t('services') },
-    { href: '#news', label: t('news') },
     { href: '#contact', label: t('contact') },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Blue accent bar — Big4 signature element */}
-      <div className="h-[3px] bg-[#1464F4]" />
-
       <div
         className={`transition-all duration-200 ${
           scrolled || menuOpen
@@ -47,32 +42,44 @@ export default function Header() {
         }`}
       >
         <div className="container">
-          <div className="flex items-center justify-between h-[60px] md:h-[68px]">
+          <div className="flex items-center h-[60px] md:h-[68px]">
 
-            {/* Logo */}
-            <Link href={`/${locale}`} className="flex items-center flex-shrink-0">
-              <Image
-                src="/logo.jpg"
-                alt="Fluxor Consulting"
-                width={140}
-                height={40}
-                className="h-9 w-auto object-contain"
-                priority
-              />
+            {/* Logo + Nav grouped left */}
+            <div className="hidden md:flex items-center gap-8">
+              <Link href={`/${locale}`} className="flex items-center gap-2 flex-shrink-0">
+                <span className="text-[#0B2D4E] font-semibold text-[15px] tracking-[0.04em] uppercase">
+                  Fluxor
+                </span>
+                <span className="text-[#64748B] text-[15px] tracking-[0.04em] uppercase font-normal">
+                  Consulting
+                </span>
+              </Link>
+
+              <nav className="flex items-center gap-8">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-[13px] text-[#64748B] hover:text-[#0B2D4E] transition-colors font-medium tracking-wide"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Mobile logo */}
+            <Link href={`/${locale}`} className="flex md:hidden items-center gap-2 flex-shrink-0">
+              <span className="text-[#0B2D4E] font-semibold text-[15px] tracking-[0.04em] uppercase">
+                Fluxor
+              </span>
+              <span className="text-[#64748B] text-[15px] tracking-[0.04em] uppercase font-normal">
+                Consulting
+              </span>
             </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-[13px] text-[#64748B] hover:text-[#0B2D4E] transition-colors font-medium tracking-wide"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
+            {/* Spacer */}
+            <div className="flex-1" />
 
             {/* Right */}
             <div className="hidden md:flex items-center gap-6">

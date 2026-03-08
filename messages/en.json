@@ -19,43 +19,49 @@
   "about": {
     "label": "About us",
     "title": "Expert in transforming distributed companies",
-    "p1": "Fluxor Consulting is an expert in transforming distributed companies through comprehensive consulting and digitalisation: from strategy to implementation.",
-    "p2": "We combine deep industry expertise with project and process management practice, helping businesses in IT, finance, manufacturing and logistics achieve sustainable growth and operational efficiency.",
-    "stat1Value": "10+",
-    "stat1Label": "Years in business transformation",
-    "stat2Value": "4",
-    "stat2Label": "Industry verticals",
-    "stat3Value": "100%",
-    "stat3Label": "Results-oriented"
+    "subtitle": "What sets us apart is our integrated approach:",
+    "points": [
+      "Strategy, processes, and technology — within a single solutions ecosystem",
+      "Deep expertise in transforming distributed structures",
+      "Real cases in automation, digitalisation, and AI implementation",
+      "Development and deployment of methodologies that work in the field",
+      "Building process offices and training teams for your context"
+    ],
+    "closing": "We don't just advise — we transform.",
+    "advantages": [
+      {
+        "title": "10+ years of experience",
+        "description": "in transforming distributed structures"
+      },
+      {
+        "title": "Flexible solutions",
+        "description": "adapted to local and international standards"
+      },
+      {
+        "title": "Team of experts",
+        "description": "with hands-on experience in IT, finance, manufacturing and education"
+      }
+    ]
   },
   "services": {
     "label": "Services",
-    "title": "What we do",
-    "description": "We provide integrated advisory services across the most critical dimensions of business performance.",
+    "title": "What we offer",
     "items": [
       {
-        "title": "Corporate Strategy",
-        "description": "Market entry, portfolio optimization, competitive positioning, and long-range strategic planning."
+        "title": "Digitalisation & Automation Consulting",
+        "description": "Consulting on digitalisation and automation of business processes."
       },
       {
-        "title": "Financial Advisory",
-        "description": "M&A due diligence, financial modeling, valuation, and capital structure optimization."
+        "title": "ITSM & AI Implementation",
+        "description": "Implementation of process management, ITSM, and AI-based solutions."
       },
       {
-        "title": "Operational Excellence",
-        "description": "Process redesign, cost transformation, and organizational effectiveness programs."
+        "title": "Process Office Design",
+        "description": "Building process offices and operational models."
       },
       {
-        "title": "Digital Transformation",
-        "description": "Technology strategy, digital roadmaps, and implementation governance for complex change programs."
-      },
-      {
-        "title": "Risk & Compliance",
-        "description": "Enterprise risk frameworks, regulatory compliance, and internal control assessments."
-      },
-      {
-        "title": "Leadership & Talent",
-        "description": "Organizational design, executive alignment, and capability-building programs."
+        "title": "Team Training & Development",
+        "description": "Training and developing teams in process and project management."
       }
     ]
   },
@@ -94,47 +100,9 @@
   "footer": {
     "tagline": "Strategic Advisory. Measurable Results.",
     "rights": "All rights reserved.",
-    "company": "Fluxor Consulting"
-  },
-  "advantages": {
-    "label": "Why us",
-    "title": "Our advantages",
-    "items": [
-      {
-        "title": "10+ years of experience",
-        "description": "Transforming distributed structures in IT, finance, manufacturing and education."
-      },
-      {
-        "title": "Flexible solutions",
-        "description": "We adapt methodologies to local and international standards of your business."
-      },
-      {
-        "title": "Team of experts",
-        "description": "Practitioners with hands-on experience in IT, finance, manufacturing and education."
-      }
-    ]
-  },
-  "results": {
-    "label": "Impact",
-    "title": "Results we deliver",
-    "description": "Measurable improvements across key business metrics.",
-    "items": [
-      {
-        "value": "20–30%",
-        "label": "Cost reduction",
-        "description": "Through process optimisation, automation and elimination of operational waste."
-      },
-      {
-        "value": "2–3×",
-        "label": "Process manageability",
-        "description": "Increased transparency and control over operational activities."
-      },
-      {
-        "value": "AI+",
-        "label": "AI implementation",
-        "description": "Real integration of artificial intelligence into the company's operational activities."
-      }
-    ]
+    "company": "Fluxor Consulting",
+    "navigation": "Navigation",
+    "disclaimer": "All advisory services are subject to engagement terms."
   },
   "portfolio": {
     "label": "Portfolio",
