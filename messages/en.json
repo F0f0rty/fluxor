@@ -2,8 +2,11 @@
   "nav": {
     "about": "About",
     "services": "Services",
+    "solutions": "Solutions",
+    "experience": "Our experience",
     "news": "News",
-    "contact": "Contact"
+    "contact": "Contact",
+    "connect": "Get in touch"
   },
   "hero": {
     "tagline": "Managing Business Through Knowledge, Processes and Technology",
@@ -18,8 +21,12 @@
   },
   "about": {
     "label": "About us",
-    "title": "Expert in transforming distributed companies",
+    "heading": "About Fluxor",
+    "headingSubtitle": "Transforming business with cutting-edge technology and deep expertise.",
+    "title": "Commitment to excellence",
     "subtitle": "What sets us apart is our integrated approach:",
+    "imageOverlayTitle": "Global presence",
+    "imageOverlayText": "We work with clients worldwide, breaking boundaries for your business",
     "points": [
       "Strategy, processes, and technology — within a single solutions ecosystem",
       "Deep expertise in transforming distributed structures",
@@ -40,12 +47,17 @@
       {
         "title": "Team of experts",
         "description": "with hands-on experience in IT, finance, manufacturing and education"
+      },
+      {
+        "title": "98%",
+        "description": "Client satisfaction"
       }
     ]
   },
   "services": {
     "label": "Services",
     "title": "What we offer",
+    "subtitle": "Comprehensive consulting services designed to address your unique challenges and unlock new opportunities.",
     "items": [
       {
         "title": "Digitalisation & Automation Consulting",
@@ -102,12 +114,46 @@
     "rights": "All rights reserved.",
     "company": "Fluxor Consulting",
     "navigation": "Navigation",
-    "disclaimer": "All advisory services are subject to engagement terms."
+    "resources": "Resources",
+    "blog": "Blog",
+    "cases": "Case studies",
+    "analytics": "Insights",
+    "disclaimer": "All advisory services are subject to engagement terms.",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use"
+  },
+  "experience": {
+    "title": "Our experience",
+    "description": "We take pride in the results our clients achieve. Explore examples of successful projects and large-scale transformations.",
+    "allCases": "All cases",
+    "resultLabel": "Result",
+    "cards": [
+      {
+        "company": "Global FinTech",
+        "role": "Operational model transformation",
+        "result": "+40% efficiency",
+        "description": "Review and optimization of key processes for a leading financial company, resulting in significant reduction of operational costs."
+      },
+      {
+        "company": "National Retailer",
+        "role": "Digitalisation strategy",
+        "result": "Deployed in 6 months",
+        "description": "Development of a comprehensive digitalisation roadmap that enabled the company to enter new markets and double online sales."
+      },
+      {
+        "company": "Industrial Holding",
+        "role": "Analytics & Data",
+        "result": "Saving $12M/year",
+        "description": "Building a unified data warehouse and business intelligence system for predictive maintenance of production lines."
+      }
+    ]
   },
   "portfolio": {
     "label": "Portfolio",
     "title": "Our experience",
     "description": "Delivered projects across industry verticals.",
+    "projects": "projects",
+    "allCases": "All cases",
     "sectors": [
       {
         "name": "IT",

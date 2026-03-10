@@ -1,75 +1,85 @@
 import { useTranslations } from 'next-intl';
 
-const sectorIcons = [
-  <svg key="it" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-    <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+const cardIcons = [
+  <svg key="0" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
   </svg>,
-  <svg key="fin" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+  <svg key="1" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
   </svg>,
-  <svg key="edu" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+  <svg key="2" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>
   </svg>,
 ];
 
-export default function Portfolio() {
-  const tp = useTranslations('portfolio');
+const cardColors = [
+  'bg-blue-500/20 text-blue-300',
+  'bg-indigo-500/20 text-indigo-300',
+  'bg-sky-500/20 text-sky-300',
+];
 
-  const sectors = Array.from({ length: 3 }, (_, s) => {
-    const count = s === 2 ? 3 : 5;
-    return {
-      name: tp(`sectors.${s}.name`),
-      items: Array.from({ length: count }, (_, i) => tp(`sectors.${s}.items.${i}`)),
-      icon: sectorIcons[s],
-    };
-  });
+export default function Portfolio() {
+  const t = useTranslations('experience');
+
+  const cards = Array.from({ length: 3 }, (_, i) => ({
+    company: t(`cards.${i}.company`),
+    role: t(`cards.${i}.role`),
+    result: t(`cards.${i}.result`),
+    description: t(`cards.${i}.description`),
+    icon: cardIcons[i],
+    color: cardColors[i],
+  }));
 
   return (
-    <section id="portfolio" className="section bg-white">
-      <div className="container">
-
-        {/* Header */}
-        <div className="mb-12">
-          <p className="section-label mb-3">{tp('label')}</p>
-          <div className="rule" />
-          <h2
-            className="text-[2rem] md:text-[2.6rem] text-[#0B2D4E] leading-tight"
-            style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
-          >
-            {tp('title')}
-          </h2>
+    <section id="experience" className="min-h-screen flex items-center px-4 sm:px-6 py-24 sm:py-32 bg-transparent border-t border-white/5 relative overflow-hidden text-white">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-20 gap-6 sm:gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 sm:mb-6 tracking-tight text-white">
+              {t('title')}
+            </h2>
+            <p className="text-white/70 text-lg sm:text-xl font-light leading-relaxed">
+              {t('description')}
+            </p>
+          </div>
+          <button className="flex items-center gap-2 px-5 sm:px-6 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-all font-medium text-white w-full md:w-auto justify-center md:justify-start">
+            {t('allCases')}
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
-        {/* Sector blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {sectors.map((sector, i) => (
-            <div key={i} className="bg-[#F7F8FA] border border-[#DDE3EC] p-8 hover:border-[#1464F4] transition-colors duration-200">
-              {/* Icon + sector name */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-[#1464F4]/10 flex items-center justify-center text-[#1464F4] flex-shrink-0">
-                  {sector.icon}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {cards.map((card, i) => (
+            <div
+              key={i}
+              className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden hover:bg-white/10"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div>
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-6 sm:mb-8 ${card.color}`}>
+                  {card.icon}
                 </div>
-                <h3
-                  className="text-[1.1rem] text-[#0B2D4E]"
-                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 500 }}
-                >
-                  {sector.name}
+                <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/50 mb-2 sm:mb-3">
+                  {card.company}
+                </h4>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-white line-clamp-2">
+                  {card.role}
                 </h3>
+                <p className="text-white/70 font-light mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
+                  {card.description}
+                </p>
               </div>
 
-              {/* Project list */}
-              <ul className="space-y-3">
-                {sector.items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 bg-[#1464F4] flex-shrink-0 mt-[7px]" />
-                    <span className="text-[13px] text-[#64748B] leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="pt-5 sm:pt-6 border-t border-white/10 flex items-center justify-between mt-auto">
+                <span className="text-xs sm:text-sm font-medium text-white/50">{t('resultLabel')}:</span>
+                <span className="text-base sm:text-lg font-bold text-blue-300">{card.result}</span>
+              </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Header() {
   const t = useTranslations('nav');
@@ -12,6 +12,8 @@ export default function Header() {
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -19,129 +21,166 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const switchLocale = () => {
-    const next = locale === 'en' ? 'ru' : 'en';
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const switchTo = (lang: string) => {
     const segments = pathname.split('/');
-    segments[1] = next;
-    router.push(segments.join('/') || `/${next}`);
+    segments[1] = lang;
+    router.push(segments.join('/') || `/${lang}`);
+    setLangOpen(false);
   };
 
   const navLinks = [
     { href: '#about', label: t('about') },
-    { href: '#services', label: t('services') },
-    { href: '#contact', label: t('contact') },
+    { href: '#solutions', label: t('solutions') },
+    { href: '#experience', label: t('experience') },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div
-        className={`transition-all duration-200 ${
-          scrolled || menuOpen
-            ? 'bg-white shadow-[0_1px_0_0_#DDE3EC]'
-            : 'bg-white/96 backdrop-blur-sm'
+        className={`transition-all duration-300 ${
+          scrolled
+            ? 'backdrop-blur-xl bg-[#0c182a]/80 border-b border-white/10 shadow-sm py-3'
+            : 'bg-transparent py-5'
         }`}
       >
-        <div className="container">
-          <div className="flex items-center h-[60px] md:h-[68px]">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-            {/* Logo + Nav grouped left */}
-            <div className="hidden md:flex items-center gap-8">
-              <Link href={`/${locale}`} className="flex items-center gap-2 flex-shrink-0">
-                <span className="text-[#0B2D4E] font-semibold text-[15px] tracking-[0.04em] uppercase">
-                  Fluxor
-                </span>
-                <span className="text-[#64748B] text-[15px] tracking-[0.04em] uppercase font-normal">
-                  Consulting
-                </span>
-              </Link>
+          {/* Logo */}
+          <Link href={`/${locale}`} className="flex items-center gap-1 flex-shrink-0">
+            <span className="text-2xl font-bold tracking-tight text-white transition-colors">
+              FLUXOR
+            </span>
+          </Link>
 
-              <nav className="flex items-center gap-8">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-[13px] text-[#64748B] hover:text-[#0B2D4E] transition-colors font-medium tracking-wide"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Mobile logo */}
-            <Link href={`/${locale}`} className="flex md:hidden items-center gap-2 flex-shrink-0">
-              <span className="text-[#0B2D4E] font-semibold text-[15px] tracking-[0.04em] uppercase">
-                Fluxor
-              </span>
-              <span className="text-[#64748B] text-[15px] tracking-[0.04em] uppercase font-normal">
-                Consulting
-              </span>
-            </Link>
-
-            {/* Spacer */}
-            <div className="flex-1" />
-
-            {/* Right */}
-            <div className="hidden md:flex items-center gap-6">
-              <button
-                onClick={switchLocale}
-                className="text-[11px] font-semibold text-[#64748B] hover:text-[#0B2D4E] transition-colors uppercase tracking-[0.12em]"
-              >
-                {locale === 'en' ? 'RU' : 'EN'}
-              </button>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex gap-8 items-center font-medium">
+            {navLinks.map((link) => (
               <a
-                href="#contact"
-                className="text-[11px] font-semibold bg-[#0B2D4E] text-white px-5 py-2.5 hover:bg-[#1464F4] transition-colors uppercase tracking-[0.1em]"
+                key={link.href}
+                href={link.href}
+                className="text-white/80 hover:text-white transition-colors drop-shadow-sm"
               >
-                {t('contact')}
+                {link.label}
               </a>
+            ))}
+
+            {/* Language Globe Dropdown */}
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors"
+                aria-label="Language"
+              >
+                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M2 12h20"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                <span className="text-xs font-semibold uppercase tracking-wide">
+                  {locale.toUpperCase()}
+                </span>
+                <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className={`transition-transform ${langOpen ? 'rotate-180' : ''}`}>
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+
+              {langOpen && (
+                <div className="absolute top-full right-0 mt-2 py-1 rounded-xl bg-[#0c182a]/95 backdrop-blur-xl border border-white/10 shadow-2xl min-w-[120px] overflow-hidden">
+                  <button
+                    onClick={() => switchTo('ru')}
+                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                      locale === 'ru' ? 'text-white bg-white/10' : 'text-white/60 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    Русский
+                  </button>
+                  <button
+                    onClick={() => switchTo('en')}
+                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                      locale === 'en' ? 'text-white bg-white/10' : 'text-white/60 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    English
+                  </button>
+                </div>
+              )}
             </div>
 
-            {/* Mobile */}
-            <div className="flex md:hidden items-center gap-4">
-              <button
-                onClick={switchLocale}
-                className="text-[11px] font-semibold text-[#64748B] uppercase tracking-widest"
-              >
-                {locale === 'en' ? 'RU' : 'EN'}
-              </button>
-              <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-                {menuOpen ? (
-                  <svg width="20" height="20" fill="none" stroke="#0B2D4E" strokeWidth="1.5">
-                    <path d="M5 15L15 5M5 5l10 10" />
-                  </svg>
-                ) : (
-                  <svg width="20" height="20" fill="none" stroke="#0B2D4E" strokeWidth="1.5">
-                    <path d="M2.5 10h15M2.5 5h15M2.5 15h15" />
-                  </svg>
-                )}
-              </button>
-            </div>
+            <a
+              href="#contact"
+              className="px-6 py-2.5 bg-[#1e3a5f] text-white rounded-xl hover:bg-[#1e3a5f]/90 transition-all shadow-md font-semibold"
+            >
+              {t('connect')}
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden items-center gap-4">
+            <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+              {menuOpen ? (
+                <svg width="22" height="22" fill="none" stroke="#fff" strokeWidth="1.5">
+                  <path d="M5 17L17 5M5 5l12 12" />
+                </svg>
+              ) : (
+                <svg width="22" height="22" fill="none" stroke="#fff" strokeWidth="1.5">
+                  <path d="M3 11h16M3 5.5h16M3 16.5h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Navigation Menu */}
         {menuOpen && (
-          <div className="md:hidden border-t border-[#DDE3EC] bg-white">
-            <nav className="container py-5 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm font-medium text-[#0B2D4E] py-2.5 border-b border-[#F0F4F8] last:border-0"
-                >
-                  {link.label}
-                </a>
-              ))}
+          <div className="md:hidden absolute top-full left-0 right-0 bg-[#0c182a]/95 backdrop-blur-xl border-b border-white/10 shadow-xl py-4 px-6 flex flex-col gap-4 max-h-[calc(100vh-80px)] overflow-y-auto">
+            {navLinks.map((link) => (
               <a
-                href="#contact"
+                key={link.href}
+                href={link.href}
+                className="text-lg font-medium text-white py-2 border-b border-white/10"
                 onClick={() => setMenuOpen(false)}
-                className="mt-3 inline-flex items-center justify-center text-[11px] font-semibold bg-[#0B2D4E] text-white px-5 py-3 uppercase tracking-[0.1em]"
               >
-                {t('contact')}
+                {link.label}
               </a>
-            </nav>
+            ))}
+
+            {/* Mobile language switcher */}
+            <div className="flex gap-3 py-2 border-b border-white/10">
+              <button
+                onClick={() => { switchTo('ru'); setMenuOpen(false); }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  locale === 'ru' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white'
+                }`}
+              >
+                Русский
+              </button>
+              <button
+                onClick={() => { switchTo('en'); setMenuOpen(false); }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  locale === 'en' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white'
+                }`}
+              >
+                English
+              </button>
+            </div>
+
+            <a
+              href="#contact"
+              className="mt-2 px-6 py-3 bg-[#1e3a5f] text-white rounded-xl hover:bg-[#1e3a5f]/90 transition-all shadow-md font-semibold text-center text-lg"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t('connect')}
+            </a>
           </div>
         )}
       </div>

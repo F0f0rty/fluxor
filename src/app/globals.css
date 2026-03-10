@@ -5,22 +5,24 @@
 
 :root {
   /* Brand */
-  --navy: #0B2D4E;
-  --navy-dark: #071e35;
-  --blue-accent: #1464F4;
+  --navy: #1e3a5f;
+  --navy-dark: #0b1625;
+  --navy-mid: #132742;
+  --blue-accent: #4a6fa5;
 
   /* Neutrals */
   --background: #ffffff;
-  --surface: #F7F8FA;
+  --surface: #f8fafc;
   --foreground: #0B1526;
-  --muted: #64748B;
-  --border: #DDE3EC;
+  --muted: #717182;
+  --border: rgba(30, 58, 95, 0.1);
 
   /* shadcn compat */
   --primary: var(--navy);
   --primary-foreground: #ffffff;
+  --secondary: #4a6fa5;
   --muted-foreground: var(--muted);
-  --radius: 0px;
+  --radius: 0.75rem;
 }
 
 @theme inline {
@@ -28,15 +30,16 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--navy);
   --color-primary-foreground: #ffffff;
+  --color-secondary: var(--secondary);
   --color-muted: var(--surface);
   --color-muted-foreground: var(--muted);
   --color-border: var(--border);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'EB Garamond', 'Georgia', serif;
-  --radius-sm: 0px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
-  --radius-xl: 2px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 * {
@@ -55,22 +58,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Serif display headings */
-.display {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
-
 /* Section padding */
 .section {
-  padding: 6rem 0;
+  padding: 8rem 0;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 }
 
@@ -89,19 +84,11 @@ body {
 
 /* Label chip */
 .section-label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--blue-accent);
-}
-
-/* Blue rule under labels */
-.rule {
-  width: 2rem;
-  height: 2px;
-  background: var(--blue-accent);
-  margin: 0.75rem 0 1.5rem;
+  color: var(--navy);
 }
 
 /* Focus ring */
