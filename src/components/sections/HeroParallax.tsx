@@ -21,7 +21,7 @@ export default function HeroParallax({ children }: { children: React.ReactNode }
 
       {/* Content that fades in */}
       <div
-        className={`transition-all duration-[2000ms] ease-out ${
+        className={`w-full transition-all duration-[2000ms] ease-out ${
           mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >

@@ -12,6 +12,7 @@ const schema = z.object({
   email: z.string().email('Invalid email'),
   company: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  consent: z.literal(true, { error: 'Consent required' }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -30,10 +31,11 @@ export default function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
     try {
+      const { consent: _, ...payload } = data;
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error();
       toast.success(t('form.success'));
@@ -53,7 +55,7 @@ export default function ContactForm() {
       <div className="max-w-6xl mx-auto w-full relative z-10">
 
         {/* Section header */}
-        <div className="text-center mb-12 sm:mb-20">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 sm:mb-6">
             {t('title')}
           </h2>
@@ -125,6 +127,26 @@ export default function ContactForm() {
                 {errors.message && <p className="text-xs text-red-400 mt-2">{errors.message.message}</p>}
               </div>
 
+              {/* Privacy consent (152-FZ) */}
+              <div>
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    {...register('consent')}
+                    className="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-[#1e3a5f] focus:ring-white/30 focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                  />
+                  <span className="text-white/60 text-xs sm:text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+                    {t('form.consent')}{' '}
+                    <a href="#" className="text-white/80 underline underline-offset-2 hover:text-white transition-colors">
+                      {t('form.consentLink')}
+                    </a>
+                  </span>
+                </label>
+                {errors.consent && (
+                  <p className="text-xs text-red-400 mt-2">{t('form.consentError')}</p>
+                )}
+              </div>
+
               <button
                 type="submit"
                 disabled={submitting}
@@ -135,26 +157,6 @@ export default function ContactForm() {
             </form>
           </div>
 
-          {/* Contact info below form */}
-          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-10 text-center">
-            <div>
-              <p className="text-xs font-semibold text-white/30 uppercase tracking-[0.2em] mb-2">
-                {t('info.emailLabel')}
-              </p>
-              <a
-                href={`mailto:${t('info.email')}`}
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                {t('info.email')}
-              </a>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-white/30 uppercase tracking-[0.2em] mb-2">
-                {t('info.locationLabel')}
-              </p>
-              <p className="text-sm text-white/60">{t('info.location')}</p>
-            </div>
-          </div>
         </div>
 
       </div>

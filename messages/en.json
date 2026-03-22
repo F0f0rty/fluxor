@@ -4,23 +4,24 @@
     "services": "Services",
     "solutions": "Solutions",
     "experience": "Our experience",
-    "news": "News",
     "contact": "Contact",
     "connect": "Get in touch"
   },
   "hero": {
     "tagline": "Managing Business Through Knowledge, Processes and Technology",
     "description": "Fluxor Consulting is an expert in transforming distributed companies through comprehensive consulting and digitalisation: from strategy to implementation. We combine deep industry expertise with project and process management practice, helping businesses in IT, finance, manufacturing and logistics achieve sustainable growth and operational efficiency.",
+    "badge": "Comprehensive consulting solutions",
     "cta": "Get in touch",
     "learnMore": "Our services",
-    "label": "Strategic Advisory",
-    "stat1": "Years of experience",
-    "stat2": "Projects delivered",
-    "stat3": "Countries served",
-    "sideQuote": "Managing Business Through Knowledge, Processes and Technology"
+    "areas": {
+      "it": "Information Technology",
+      "accounting": "Accounting & Management",
+      "logistics": "Procurement & Logistics",
+      "manufacturing": "Manufacturing",
+      "sales": "Sales"
+    }
   },
   "about": {
-    "label": "About us",
     "heading": "About Fluxor",
     "headingSubtitle": "Transforming business with cutting-edge technology and deep expertise.",
     "title": "Commitment to excellence",
@@ -55,7 +56,6 @@
     ]
   },
   "services": {
-    "label": "Services",
     "title": "What we offer",
     "subtitle": "Comprehensive consulting services designed to address your unique challenges and unlock new opportunities.",
     "items": [
@@ -77,14 +77,7 @@
       }
     ]
   },
-  "news": {
-    "label": "Insights",
-    "title": "Latest thinking",
-    "readMore": "Read article",
-    "noNews": "No articles published yet."
-  },
   "contact": {
-    "label": "Contact",
     "title": "Let's talk",
     "description": "Tell us about your challenge. Our team will follow up within one business day.",
     "form": {
@@ -100,7 +93,9 @@
       "submitting": "Sending...",
       "success": "Thank you. We will be in touch shortly.",
       "error": "Something went wrong. Please try again.",
-      "captchaError": "Please complete the CAPTCHA verification."
+      "consent": "I agree to the processing of personal data in accordance with the",
+      "consentLink": "Privacy Policy",
+      "consentError": "You must consent to personal data processing"
     },
     "info": {
       "emailLabel": "Email",
@@ -118,7 +113,6 @@
     "blog": "Blog",
     "cases": "Case studies",
     "analytics": "Insights",
-    "disclaimer": "All advisory services are subject to engagement terms.",
     "privacy": "Privacy policy",
     "terms": "Terms of use"
   },
@@ -145,43 +139,6 @@
         "role": "Analytics & Data",
         "result": "Saving $12M/year",
         "description": "Building a unified data warehouse and business intelligence system for predictive maintenance of production lines."
-      }
-    ]
-  },
-  "portfolio": {
-    "label": "Portfolio",
-    "title": "Our experience",
-    "description": "Delivered projects across industry verticals.",
-    "projects": "projects",
-    "allCases": "All cases",
-    "sectors": [
-      {
-        "name": "IT",
-        "items": [
-          "IT process development strategy for an industrial sector company",
-          "IT process model design for a mining industry company",
-          "Implementation and development of IT support processes for a corporate services company",
-          "Business process automation implementation for an IT company",
-          "Establishing internal process offices in distributed business structures"
-        ]
-      },
-      {
-        "name": "Finance",
-        "items": [
-          "Shared service centre implementation in multinational companies",
-          "Transformation of financial and economic function management model",
-          "Development of accounting and tax process methodology",
-          "Transfer pricing implementation and support",
-          "Controlling system setup"
-        ]
-      },
-      {
-        "name": "Education",
-        "items": [
-          "Process training programmes and process culture development",
-          "Recruitment for process management positions",
-          "Process management quality audit"
-        ]
       }
     ]
   }

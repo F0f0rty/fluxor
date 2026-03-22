@@ -40,8 +40,8 @@ export default function Header() {
 
   const navLinks = [
     { href: '#about', label: t('about') },
-    { href: '#solutions', label: t('solutions') },
     { href: '#experience', label: t('experience') },
+    { href: '#solutions', label: t('solutions') },
   ];
 
   return (
@@ -53,10 +53,10 @@ export default function Header() {
             : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
 
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-1 flex-shrink-0">
+          <Link href={`/${locale}`} className="flex items-center gap-1 flex-shrink-0 md:relative absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0">
             <span className="text-2xl font-bold tracking-tight text-white transition-colors">
               FLUXOR
             </span>
@@ -125,7 +125,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-4">
+          <div className="flex md:hidden items-center gap-4 ml-auto">
             <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
               {menuOpen ? (
                 <svg width="22" height="22" fill="none" stroke="#fff" strokeWidth="1.5">

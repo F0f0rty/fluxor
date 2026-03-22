@@ -54,10 +54,8 @@ export default function Portfolio() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden hover:bg-white/10"
+              className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg hover:bg-white/[0.1] hover:border-white/[0.2] hover:-translate-y-1 hover:shadow-lg hover:shadow-white/[0.03] transition-all duration-300 overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-
               <div>
                 <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-6 sm:mb-8 ${card.color}`}>
                   {card.icon}

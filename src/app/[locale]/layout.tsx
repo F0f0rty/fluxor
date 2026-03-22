@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, EB_Garamond } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -10,12 +10,6 @@ import { Toaster } from '@/components/ui/sonner';
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-sans',
-  display: 'swap',
-});
-
-const garamond = EB_Garamond({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -45,7 +39,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.variable} ${garamond.variable}`}>
+    <html lang={locale} className={inter.variable}>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

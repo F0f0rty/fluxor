@@ -29,7 +29,7 @@ export default function About() {
               {Array.from({ length: 5 }, (_, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-white/40 rounded-full flex-shrink-0 mt-[7px]" />
-                  <span className="text-white/60 text-[15px] leading-relaxed">{t(`points.${i}`)}</span>
+                  <span className="text-white/60 text-sm leading-relaxed">{t(`points.${i}`)}</span>
                 </li>
               ))}
             </ul>
@@ -60,16 +60,16 @@ export default function About() {
           {Array.from({ length: 4 }, (_, i) => (
             <div
               key={i}
-              className={`md:col-span-3 p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] ${
+              className={`group relative md:col-span-3 p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] ${
                 i === 0
                   ? 'bg-gradient-to-br from-[#1e3a5f]/30 to-white/5'
                   : 'bg-white/5'
-              } border border-white/10 backdrop-blur-xl hover:-translate-y-2 transition-transform duration-300 shadow-xl`}
+              } border border-white/10 backdrop-blur-xl hover:-translate-y-1 hover:bg-white/[0.1] hover:border-white/[0.2] hover:shadow-lg hover:shadow-white/[0.03] transition-all duration-300 shadow-xl overflow-hidden`}
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-3 break-words">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3">
                 {t(`advantages.${i}.title`)}
               </div>
-              <div className="text-white/60 text-xs sm:text-sm font-medium uppercase tracking-wider break-words">
+              <div className="text-white/60 text-xs sm:text-sm font-medium leading-snug">
                 {t(`advantages.${i}.description`)}
               </div>
             </div>

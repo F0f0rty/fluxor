@@ -35,7 +35,6 @@
   --color-muted-foreground: var(--muted);
   --color-border: var(--border);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'EB Garamond', 'Georgia', serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -48,6 +47,12 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE / Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;                  /* Chrome / Safari / Opera */
 }
 
 body {
@@ -56,39 +61,6 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Section padding */
-.section {
-  padding: 8rem 0;
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 5rem 0;
-  }
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-@media (max-width: 640px) {
-  .container {
-    padding: 0 1.25rem;
-  }
-}
-
-/* Label chip */
-.section-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--navy);
 }
 
 /* Focus ring */
