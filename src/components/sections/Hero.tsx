@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="h-[100svh] flex items-center relative overflow-hidden"
+      className="min-h-[100svh] lg:h-[100svh] flex items-start lg:items-center relative overflow-hidden"
     >
       {/* Background with Grid Pattern */}
       <div className="absolute inset-0 z-0 bg-[#0c182a] overflow-hidden">
@@ -52,7 +52,7 @@ export default function Hero() {
       </div>
 
       <HeroParallax>
-        <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 pt-32 pb-20">
+        <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 pt-24 lg:pt-32 pb-20">
           <div className="grid lg:grid-cols-12 gap-[clamp(1.5rem,3vh,3rem)] lg:gap-8 items-center">
             {/* Left — Text Content */}
             <div className="lg:col-span-6 flex flex-col justify-center">

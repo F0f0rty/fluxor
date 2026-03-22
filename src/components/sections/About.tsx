@@ -41,8 +41,8 @@ export default function About() {
           {/* Image Block */}
           <div className="md:col-span-5 min-h-[350px] sm:min-h-[400px] md:min-h-0 rounded-3xl sm:rounded-[2.5rem] overflow-hidden relative border border-white/10 shadow-2xl group">
             <img
-              src="https://images.unsplash.com/photo-1754479145644-04ff3b295a02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-              alt="Fluxor Office"
+              src="/about.jpg"
+              alt="Fluxor Consulting — глобальное присутствие"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
