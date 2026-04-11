@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 import { Toaster } from '@/components/ui/sonner';
@@ -119,6 +120,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     },
   };
 
+  const umamiId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+  const umamiUrl = process.env.NEXT_PUBLIC_UMAMI_URL;
+
   return (
     <html lang={locale} className={inter.variable}>
       <body>
@@ -126,6 +130,13 @@ export default async function LocaleLayout({ children, params }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {umamiId && umamiUrl && (
+          <Script
+            src={`${umamiUrl}/script.js`}
+            data-website-id={umamiId}
+            strategy="afterInteractive"
+          />
+        )}
         <NextIntlClientProvider messages={messages}>
           {children}
           <Toaster position="bottom-right" />
