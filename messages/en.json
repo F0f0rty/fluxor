@@ -105,7 +105,7 @@
     }
   },
   "footer": {
-    "tagline": "Strategic Advisory. Measurable Results.",
+    "tagline": "Operational Consulting. Measurable Results.",
     "rights": "All rights reserved.",
     "company": "Fluxor Consulting",
     "navigation": "Navigation",
@@ -127,12 +127,6 @@
         "role": "Operational model transformation",
         "result": "+40% efficiency",
         "description": "Review and optimization of key processes for a leading financial company, resulting in significant reduction of operational costs."
-      },
-      {
-        "company": "National Retailer",
-        "role": "Digitalisation strategy",
-        "result": "Deployed in 6 months",
-        "description": "Development of a comprehensive digitalisation roadmap that enabled the company to enter new markets and double online sales."
       },
       {
         "company": "Industrial Holding",

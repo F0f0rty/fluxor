@@ -17,17 +17,17 @@ const SITE_URL = 'https://fluxorconsulting.com';
 
 const meta = {
   ru: {
-    title: 'Fluxor Consulting — Стратегический консалтинг',
+    title: 'Fluxor Consulting — Операционный консалтинг',
     description:
-      'Fluxor Consulting — эксперт в трансформации бизнеса через комплексный консалтинг и цифровизацию. Стратегия, процессы, технологии.',
-    ogDescription: 'Стратегический консалтинг. Измеримые результаты.',
+      'Fluxor Consulting — эксперт в трансформации бизнеса через комплексный операционный консалтинг и цифровизацию. Процессы, эффективность, результаты.',
+    ogDescription: 'Операционный консалтинг. Измеримые результаты.',
     locale: 'ru_RU',
   },
   en: {
-    title: 'Fluxor Consulting — Strategic Advisory',
+    title: 'Fluxor Consulting — Operational Consulting',
     description:
-      'Fluxor Consulting delivers senior-level expertise across strategy, finance, and operations. From strategy to implementation.',
-    ogDescription: 'Strategic Advisory. Measurable Results.',
+      'Fluxor Consulting delivers senior-level expertise in operational transformation, process efficiency, and digitalization. From diagnosis to measurable results.',
+    ogDescription: 'Operational Consulting. Measurable Results.',
     locale: 'en_US',
   },
 } as const;
@@ -74,6 +74,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t.title,
       description: t.description,
       images: [`${SITE_URL}/og.png`],
+    },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '32x32' },
+        { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      ],
+      apple: '/apple-icon.png',
     },
     robots: {
       index: true,

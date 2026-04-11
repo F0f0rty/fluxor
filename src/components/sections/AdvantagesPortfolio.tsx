@@ -18,16 +18,16 @@ const cardColors = [
   'bg-sky-500/20 text-sky-300',
 ];
 
+type CardData = { company: string; role: string; result: string; description: string };
+
 export default function Portfolio() {
   const t = useTranslations('experience');
 
-  const cards = Array.from({ length: 3 }, (_, i) => ({
-    company: t(`cards.${i}.company`),
-    role: t(`cards.${i}.role`),
-    result: t(`cards.${i}.result`),
-    description: t(`cards.${i}.description`),
-    icon: cardIcons[i],
-    color: cardColors[i],
+  const rawCards = t.raw('cards') as CardData[];
+  const cards = rawCards.map((card, i) => ({
+    ...card,
+    icon: cardIcons[i % cardIcons.length],
+    color: cardColors[i % cardColors.length],
   }));
 
   return (
@@ -50,7 +50,7 @@ export default function Portfolio() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {cards.map((card, i) => (
             <div
               key={i}

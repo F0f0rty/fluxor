@@ -39,6 +39,7 @@ yarn-error.log*
 # project docs with sensitive data
 KNOWLEDGE_BASE.md
 TODO.md
+NOTES.md
 
 # typescript
 *.tsbuildinfo

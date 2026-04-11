@@ -56,7 +56,7 @@ export default function Hero() {
           <div className="grid lg:grid-cols-12 gap-[clamp(1.5rem,3vh,3rem)] lg:gap-8 items-center">
             {/* Left — Text Content */}
             <div className="lg:col-span-6 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.12] backdrop-blur-md mb-[clamp(0.75rem,2vh,1.5rem)] w-fit text-sm font-medium text-white/80">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/[0.12] mb-[clamp(0.75rem,2vh,1.5rem)] w-fit text-sm font-medium text-white/80">
                 <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                 {t('badge')}
               </div>
@@ -78,7 +78,7 @@ export default function Hero() {
                 </a>
                 <a
                   href="#solutions"
-                  className="w-full sm:w-auto px-6 py-3 bg-white/5 backdrop-blur-md border border-white/10 text-white font-medium rounded-xl hover:bg-white/10 hover:border-white/20 transition-all text-center text-sm sm:text-base"
+                  className="w-full sm:w-auto px-6 py-3 bg-white/[0.08] border border-white/10 text-white font-medium rounded-xl hover:bg-white/[0.12] hover:border-white/20 transition-all text-center text-sm sm:text-base"
                 >
                   {t('learnMore')}
                 </a>
@@ -93,7 +93,7 @@ export default function Hero() {
                   return (
                     <div
                       key={area.key}
-                      className={`p-[clamp(1rem,2vh,1.75rem)] rounded-3xl bg-white/[0.06] border border-white/[0.12] backdrop-blur-xl hover:bg-white/[0.1] hover:border-white/[0.2] hover:-translate-y-1 hover:shadow-lg hover:shadow-white/[0.03] transition-all duration-300 cursor-default ${area.colSpan}`}
+                      className={`p-[clamp(1rem,2vh,1.75rem)] rounded-3xl bg-white/[0.08] border border-white/[0.12] hover:bg-white/[0.12] hover:border-white/[0.2] hover:-translate-y-1 hover:shadow-lg hover:shadow-white/[0.03] transition-all duration-300 cursor-default ${area.colSpan}`}
                     >
                       <div className="flex items-start mb-[clamp(0.75rem,1.5vh,1.25rem)]">
                         <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/[0.12]">
