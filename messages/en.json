@@ -116,6 +116,53 @@
     "privacy": "Privacy policy",
     "terms": "Terms of use"
   },
+  "privacy": {
+    "back": "Back to home",
+    "title": "Privacy Policy",
+    "updated": "Last updated: April 11, 2026",
+    "s1": {
+      "title": "1. General Provisions",
+      "text": "This Privacy Policy defines the procedure for processing and protecting personal data of individuals who submit their data via the contact form on fluxorconsulting.com. The data controller is Fluxor Consulting LLC (hereinafter — the Controller). Personal data is processed in accordance with Federal Law No. 152-FZ of 27.07.2006 'On Personal Data'."
+    },
+    "s2": {
+      "title": "2. Personal Data Collected",
+      "text": "The Controller processes the following personal data voluntarily provided by the user when completing the contact form:",
+      "i1": "First and last name",
+      "i2": "Email address",
+      "i3": "Phone number (if provided)",
+      "i4": "Company name (if provided)"
+    },
+    "s3": {
+      "title": "3. Purpose of Processing",
+      "text": "Personal data is processed exclusively for the following purposes:",
+      "i1": "Reviewing the inquiry and preparing a response",
+      "i2": "Establishing business contact with prospective clients"
+    },
+    "s4": {
+      "title": "4. Data Storage and Security",
+      "text": "Personal data is stored on servers located in the Russian Federation. The Controller implements necessary organisational and technical measures to protect personal data from unauthorised access, alteration, disclosure, or destruction. Retention period: 3 (three) years from the date of consent, or until the consent is withdrawn by the data subject."
+    },
+    "s5": {
+      "title": "5. Third-Party Disclosure",
+      "text": "The Controller does not transfer personal data to third parties, except as required by applicable Russian law."
+    },
+    "s6": {
+      "title": "6. Rights of the Data Subject",
+      "text": "The user has the right to:",
+      "i1": "Obtain information about the processing of their personal data",
+      "i2": "Request correction, blocking or deletion of their personal data",
+      "i3": "Withdraw consent to personal data processing at any time",
+      "i4": "Lodge a complaint with the supervisory authority (Roskomnadzor)"
+    },
+    "s7": {
+      "title": "7. Cookies",
+      "text": "The website fluxorconsulting.com does not use cookies and does not collect web analytics data."
+    },
+    "s8": {
+      "title": "8. Contact Information",
+      "text": "For any questions regarding the processing of personal data, please contact the Controller:\n\nFluxor Consulting LLC\nEmail: hello@fluxorconsulting.com"
+    }
+  },
   "experience": {
     "title": "Our experience",
     "description": "We take pride in the results our clients achieve. Explore examples of successful projects and large-scale transformations.",

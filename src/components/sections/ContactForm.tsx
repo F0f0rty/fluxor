@@ -137,7 +137,7 @@ export default function ContactForm() {
                   />
                   <span className="text-white/60 text-xs sm:text-sm leading-relaxed group-hover:text-white/80 transition-colors">
                     {t('form.consent')}{' '}
-                    <a href="#" className="text-white/80 underline underline-offset-2 hover:text-white transition-colors">
+                    <a href="/privacy" className="text-white/80 underline underline-offset-2 hover:text-white transition-colors">
                       {t('form.consentLink')}
                     </a>
                   </span>

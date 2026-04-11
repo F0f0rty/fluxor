@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import nodemailer from 'nodemailer';
 
 const contactSchema = z.object({
   name: z.string().min(2).max(100),
@@ -36,6 +37,16 @@ function getClientIp(req: NextRequest): string {
   );
 }
 
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
+
 export async function POST(req: NextRequest) {
   const ip = getClientIp(req);
 
@@ -63,17 +74,38 @@ export async function POST(req: NextRequest) {
 
   const { name, email, company, message } = result.data;
 
-  // --- Email sending via Resend (uncomment and configure when ready) ---
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({
-  //   from: 'contact@fluxorconsulting.com',
-  //   to: 'hello@fluxorconsulting.com',
-  //   subject: `New inquiry from ${name}`,
-  //   text: `Name: ${name}\nEmail: ${email}\nCompany: ${company ?? '—'}\n\n${message}`,
-  // });
+  const date = new Date().toLocaleString('ru-RU', {
+    timeZone: 'Europe/Moscow',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
-  // For development: log to console
-  console.log('[Contact Form]', { name, email, company, message });
+  try {
+    await transporter.sendMail({
+      from: `"Fluxor Consulting" <${process.env.SMTP_USER}>`,
+      to: process.env.CONTACT_EMAIL,
+      subject: `Новая заявка — ${name}`,
+      text: [
+        `Имя: ${name}`,
+        `Email: ${email}`,
+        `Компания: ${company || '—'}`,
+        ``,
+        `Сообщение:`,
+        message,
+        ``,
+        `Дата: ${date} (МСК)`,
+      ].join('\n'),
+    });
+  } catch (err) {
+    console.error('[Contact Form] Email error:', err);
+    return NextResponse.json(
+      { error: 'Failed to send message. Please try again.' },
+      { status: 500 }
+    );
+  }
 
   return NextResponse.json({ success: true }, { status: 200 });
 }

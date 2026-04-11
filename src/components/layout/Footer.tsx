@@ -75,9 +75,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 text-center sm:text-left text-white/40 text-xs sm:text-sm font-light flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© {year} {t('company')}. {t('rights')}</p>
+          <p>© {year} ООО «Флюксор Консалтинг». {t('rights')}</p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="#" className="hover:text-white transition-colors">{t('privacy')}</a>
+            <a href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('terms')}</a>
           </div>
         </div>
