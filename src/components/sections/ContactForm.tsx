@@ -1,5 +1,11 @@
 'use client';
 
+declare global {
+  interface Window {
+    umami?: { track: (event: string, data?: Record<string, unknown>) => void };
+  }
+}
+
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -40,8 +46,10 @@ export default function ContactForm() {
       if (!res.ok) throw new Error();
       toast.success(t('form.success'));
       reset();
+      window.umami?.track('form_submit');
     } catch {
       toast.error(t('form.error'));
+      window.umami?.track('form_error');
     } finally {
       setSubmitting(false);
     }

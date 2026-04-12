@@ -72,12 +72,14 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <a
                   href="#contact"
+                  data-umami-event="hero_cta_click"
                   className="w-full sm:w-auto px-6 py-3 bg-[#1e3a5f] text-white font-medium rounded-xl hover:bg-[#1e3a5f]/90 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center text-sm sm:text-base"
                 >
                   {t('cta')}
                 </a>
                 <a
                   href="#solutions"
+                  data-umami-event="hero_learn_more_click"
                   className="w-full sm:w-auto px-6 py-3 bg-white/[0.08] border border-white/10 text-white font-medium rounded-xl hover:bg-white/[0.12] hover:border-white/20 transition-all text-center text-sm sm:text-base"
                 >
                   {t('learnMore')}
